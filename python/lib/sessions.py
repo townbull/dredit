@@ -138,7 +138,7 @@ class LilCookies:
 
     # The 2 lines below were not in Tornado.  Instead, they output all their cookies to the headers at once before a response flush.
     for vals in new_cookie.values():
-      self.response.headers._headers.append(('Set-Cookie', vals.OutputString(None)))
+      self.response.headers.add('Set-Cookie', vals.OutputString(None))
 
   def clear_cookie(self, name, path="/", domain=None):
     """Deletes the cookie with the given name."""
